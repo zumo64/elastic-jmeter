@@ -1,0 +1,172 @@
+{
+    "mappings": {
+        "logs": {
+            "properties": {
+                "@timestamp": {
+                    "format": "strict_date_optional_time||epoch_millis",
+                    "type": "date"
+                },
+                "@version": {
+                    "type": "string"
+                },
+                "agent": {
+                    "index": "not_analyzed",
+                    "type": "string"
+                },
+                "auth": {
+                    "index": "not_analyzed",
+                    "type": "string"
+                },
+                "bytes": {
+                    "type": "long"
+                },
+                "clientip": {
+                    "index": "not_analyzed",
+                    "type": "string"
+                },
+                "geoip": {
+                    "properties": {
+                        "area_code": {
+                            "type": "long"
+                        },
+                        "city_name": {
+                            "index": "not_analyzed",
+                            "type": "string"
+                        },
+                        "continent_code": {
+                            "index": "not_analyzed",
+                            "type": "string"
+                        },
+                        "country_code2": {
+                            "index": "not_analyzed",
+                            "type": "string"
+                        },
+                        "country_code3": {
+                            "index": "not_analyzed",
+                            "type": "string"
+                        },
+                        "country_name": {
+                            "index": "not_analyzed",
+                            "type": "string"
+                        },
+                        "dma_code": {
+                            "type": "long"
+                        },
+                        "ip": {
+                            "index": "not_analyzed",
+                            "type": "string"
+                        },
+                        "latitude": {
+                            "type": "double"
+                        },
+                        "location": {
+                            "type": "double"
+                        },
+                        "longitude": {
+                            "type": "double"
+                        },
+                        "postal_code": {
+                            "index": "not_analyzed",
+                            "type": "string"
+                        },
+                        "real_region_name": {
+                            "index": "not_analyzed",
+                            "type": "string"
+                        },
+                        "region_name": {
+                            "index": "not_analyzed",
+                            "type": "string"
+                        },
+                        "timezone": {
+                            "index": "not_analyzed",
+                            "type": "string"
+                        }
+                    }
+                },
+                "host": {
+                    "index": "not_analyzed",
+                    "type": "string"
+                },
+                "httpversion": {
+                    "index": "not_analyzed",
+                    "type": "string"
+                },
+                "ident": {
+                    "index": "not_analyzed",
+                    "type": "string"
+                },
+                "message": {
+                    "index": "not_analyzed",
+                    "type": "string"
+                },
+                "referrer": {
+                    "index": "not_analyzed",
+                    "type": "string"
+                },
+                "request": {
+                    "index": "not_analyzed",
+                    "type": "string"
+                },
+                "response": {
+                    "index": "not_analyzed",
+                    "type": "long"
+                },
+                "timestamp": {
+                    "type": "string"
+                },
+                "useragent": {
+                    "properties": {
+                        "build": {
+                            "index": "not_analyzed",
+                            "type": "string"
+                        },
+                        "device": {
+                            "index": "not_analyzed",
+                            "type": "string"
+                        },
+                        "major": {
+                            "index": "not_analyzed",
+                            "type": "string"
+                        },
+                        "minor": {
+                            "index": "not_analyzed",
+                            "type": "string"
+                        },
+                        "name": {
+                            "index": "not_analyzed",
+                            "type": "string"
+                        },
+                        "os": {
+                            "index": "not_analyzed",
+                            "type": "string"
+                        },
+                        "os_major": {
+                            "index": "not_analyzed",
+                            "type": "string"
+                        },
+                        "os_minor": {
+                            "index": "not_analyzed",
+                            "type": "string"
+                        },
+                        "os_name": {
+                            "index": "not_analyzed",
+                            "type": "string"
+                        },
+                        "patch": {
+                            "index": "not_analyzed",
+                            "type": "string"
+                        }
+                    }
+                },
+                "verb": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "settings": {
+        "number_of_replicas": 0,
+        "number_of_shards": 1
+    },
+   "template": "apachelogs-*"
+}

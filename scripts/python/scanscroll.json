@@ -1,0 +1,9 @@
+{
+  "query": {
+    "match_all": {}
+  },
+  "size": 500,
+  "fields": [
+    "@timestamp","agent"
+  ]
+}
