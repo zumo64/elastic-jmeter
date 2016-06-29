@@ -95,12 +95,13 @@ time1,time2,queryFileName
 
 
   
-### the test results 
+Test results
+------------
 Are located in results/results.csv
 the latency in ms is the csv file
 
 
-### todo
+* todo
 improve tooling 
 write all scripts in python (nodeJs not always avail)
 Send the latencies directly to ES when the HTTP API 
