@@ -74,19 +74,18 @@ JMeter will iterate the scroll CSV  and send scroll queries at specified through
 * if query enabled :
 JMeter will iterate the scroll CSV  and send queries  at specified throughput  
 
-* if shield not use then you have to disable the authentication managers in the Jmeter test plan (using a client).  not tested  with an authentication manager without shield
+ if shield not useed then you have to disable the authentication managers in the Jmeter test plan (using a client).  not tested  with an authentication manager without shield
 
 
 * Format of the query input CSV :
+elk_stress.jmx comes with a generic ES query sampler. This query sampler takes as an input a line in the QUERY_CSV file and inserts each value  in the corresponding query. json body
 
-* elk_stress.jmx comes with a generic ES query sampler. This query sampler takes as an input a line in the QUERY_CSV file and inserts each value  in the corresponding query. json body
-
-ex:
+example (3 lines):
 time1,time2,country_code,queryFileName
 440772151510,1440775751510,,query1.json
 1441972718913,1441976318913,,query1.json
 ,,US,query2.json
-1
+
 
 Note the variables time1, time2 referenced in the corresponding query1.json and country_code in query2.json
 
