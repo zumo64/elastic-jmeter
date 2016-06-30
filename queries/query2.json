@@ -1,0 +1,7 @@
+{
+    "query": {
+      "match": {
+        "geoip.country_code2": "${country_code}"
+      }
+  }
+}
