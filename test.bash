@@ -1,21 +1,20 @@
 #!/bin/bash
-JMETER_PATH=/Users/zumo/dev/java-tools/jmeter
-USER=es_admin
-PASS=password
-HOST=192.168.99.100
-PORT=9201
-INDEX=apachelogs-*
-QUERY_CSV=input1K1h.csv
-SCROLL_CSV=inputScroll.csv
-SHIELD_ENABLED=YES
+# Load some Vars
+. vars.bash
 
 # Througput in requests per minute
 QUERY_THROUGHPUT=5.0
-INDEX_THROUGHPUT=2.0
 SCROLL_THROUGHPUT=20.0
+# ingestion Througput in raw MB/s
+INGEST_THROUGHPUT=1
 
 # how many files in ./input ?
 BULK_FILES=$(ls -l ./input/* | wc -l)
+
+# Take  file_0 as sample for document size
+SIZEDOCS=$(awk 'NR % 2 == 0' ./input/file_0.txt | wc -c)
+AVGSIZE=$(echo "$SIZEDOCS/$DOCS_PER_BULK" | bc -l)
+INDEX_THROUGHPUT=$(echo "$INGEST_THROUGHPUT*60*1048576/($DOCS_PER_BULK*$AVGSIZE)" | bc -l)
 
 # Create template
 curl -u "$USER:$PASS" -XPUT "http://$HOST:$PORT/_template/template1" -d @./templates/apache_logs.json

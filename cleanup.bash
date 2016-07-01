@@ -1,11 +1,10 @@
 #!/bin/bash
 # unzip the ingested log files
 
-USER=es_admin
-PASS=password
-HOST=192.168.99.100
-PORT=9201
-INDEX=apachelogs-*
+
+
+# Load some Vars
+. vars.bash
 
 rm ./ingest/logs_ingest.json
 rm ./input/*
