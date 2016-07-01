@@ -66,15 +66,15 @@ elk_stress.jmx runs in the background and takes as additional params :
 
 
 * if ingestion enabled :
-JMeter will iterate the files in ./input and send the bulk queries at specified throughput
+JMeter will iterate the files in ./input (for ever) and send the bulk queries at specified throughput
 
 * if scroll enabled :
-JMeter will iterate the scroll CSV  and send scroll queries at specified throughput  
+JMeter will iterate the scroll CSV (for ever) and send scroll queries at specified throughput  
 
 * if query enabled :
-JMeter will iterate the scroll CSV  and send queries  at specified throughput  
+JMeter will iterate the scroll CSV  (for ever) and send queries  at specified throughput  
 
- if shield not useed then you have to disable the authentication managers in the Jmeter test plan (using a client).  not tested  with an authentication manager without shield
+ if shield not used then you have to disable the authentication managers in the Jmeter test plan (using a client).  not tested  with an authentication manager without shield
 
 
 * Format of the query input CSV :
@@ -101,14 +101,4 @@ Test results
 ---------------
 Are located in results/results.csv
 the latency in ms is the csv file
-
-
-  
-  
-
-  
-  
-  
-
-
 
