@@ -26,6 +26,8 @@ curl -u "$USER:$PASS" -XPUT "http://$HOST:$PORT/_template/template1" -d @./templ
   -JtestQuery=true \
   -Jhost="$HOST"  \
   -Jport="$PORT" \
+  -Juser="$USER" \
+  -Jpass="$PASS" \
   -JinputFiles="$BULK_FILES" \
   -JindexName="$INDEX" \
   -JtypeName=logs \

@@ -154,8 +154,8 @@ vars.put(&quot;queryFile&quot;, queryFile.getAbsolutePath());
             <collectionProp name="AuthManager.auth_list">
               <elementProp name="" elementType="Authorization">
                 <stringProp name="Authorization.url">http://${host}:${port}/${indexName}/${typeName}/_search</stringProp>
-                <stringProp name="Authorization.username">es_admin</stringProp>
-                <stringProp name="Authorization.password">password</stringProp>
+                <stringProp name="Authorization.username">${user}</stringProp>
+                <stringProp name="Authorization.password">${pass}</stringProp>
                 <stringProp name="Authorization.domain"></stringProp>
                 <stringProp name="Authorization.realm"></stringProp>
               </elementProp>
@@ -260,8 +260,8 @@ vars.put(&quot;scrollFileName&quot;, &quot;./queries/&quot;+qry);
             <collectionProp name="AuthManager.auth_list">
               <elementProp name="" elementType="Authorization">
                 <stringProp name="Authorization.url">http://${host}:${port}/${indexName}/${typeName}/_search</stringProp>
-                <stringProp name="Authorization.username">es_admin</stringProp>
-                <stringProp name="Authorization.password">password</stringProp>
+                <stringProp name="Authorization.username">${user}</stringProp>
+                <stringProp name="Authorization.password">${pass}</stringProp>
                 <stringProp name="Authorization.domain"></stringProp>
                 <stringProp name="Authorization.realm"></stringProp>
               </elementProp>
@@ -301,8 +301,8 @@ vars.put(&quot;scrollFileName&quot;, &quot;./queries/&quot;+qry);
             <collectionProp name="AuthManager.auth_list">
               <elementProp name="" elementType="Authorization">
                 <stringProp name="Authorization.url">http://${host}:${port}/_bulk</stringProp>
-                <stringProp name="Authorization.username">es_admin</stringProp>
-                <stringProp name="Authorization.password">password</stringProp>
+                <stringProp name="Authorization.username">${user}</stringProp>
+                <stringProp name="Authorization.password">${pass}</stringProp>
                 <stringProp name="Authorization.domain"></stringProp>
                 <stringProp name="Authorization.realm"></stringProp>
               </elementProp>
