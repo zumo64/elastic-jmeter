@@ -63,8 +63,13 @@ Set the required parameters for the test :
  * Througput in requests per minute
 QUERY_THROUGHPUT=5.0
 SCROLL_THROUGHPUT=20.0
-* Ingestion Througput in raw MB/s
+
+* Ingestion Througput in raw MB/s .
+This throughput takes is currentely based on the avg size of docs in one file in the input folder
 INGEST_THROUGHPUT=1
+
+* test tag : include a tag on each result line for this test
+TEST_TAG=T0602
 
 Run this script to perfome  the JMETER test
 
