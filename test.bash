@@ -1,5 +1,5 @@
 #!/bin/bash
-# This script requires input files in ./input
+# This script requires input files in ./input if you are planning to test ingestion
 # each input file should be a proper BULK request :
 # ex :
 # { "index" : { "_index" : "apachelogs-2015.08.22", "_type" : "logs" } }
@@ -10,14 +10,35 @@
 # Load Global Vars
 . vars.bash
 
+
 # Througput in requests per minute
 QUERY_THROUGHPUT=5.0
 SCROLL_THROUGHPUT=20.0
 # ingestion Througput in raw MB/s
 INGEST_THROUGHPUT=0.5
-
 # Tag this test
 TEST_TAG=T0602
+
+# Enable/disable JMeter test group threads
+INGESTION_ENABLED=true
+QUERY_ENABLED=true
+SCROSS_ENABLED=true
+
+# Query and Scroll files in ./queries 
+QUERY_CSV=input1K1h.csv
+SCROLL_CSV=inputScroll.csv
+
+
+
+if [ "$INGESTION_ENABLED" == "true" ] 
+then
+  if ! [[ "$(ls -A ./input)" ]]
+  then
+    echo "You need some data to ingest in ./input .."
+    exit
+  fi
+fi
+
 
 # how many files in ./input ?
 BULK_FILES=$(ls -l ./input/* | wc -l)
@@ -27,8 +48,8 @@ ONE_FILE=$(ls ./input | head -1)
 # Take  ONE_FILE  as sample for document size
 SIZEDOCS=$(awk 'NR % 2 == 0' ./input/$ONE_FILE | wc -c)
 
-TOAL_SIZE=$(echo "$SIZEDOCS/$DOCS_PER_BULK" | bc -l)
-INDEX_THROUGHPUT=$(echo "$INGEST_THROUGHPUT*60*1048576/($DOCS_PER_BULK*$TOAL_SIZE)" | bc -l)
+TOTAL_SIZE=$(echo "$SIZEDOCS/$DOCS_PER_BULK" | bc -l)
+INDEX_THROUGHPUT=$(echo "$INGEST_THROUGHPUT*60*1048576/($DOCS_PER_BULK*$TOTAL_SIZE)" | bc -l)
 
 # Create apachelogs-* template
 curl -u "$USER:$PASS" -XPUT "http://$HOST:$PORT/_template/template1" -d @./templates/apache_logs.json

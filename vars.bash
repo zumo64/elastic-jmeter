@@ -5,7 +5,5 @@ PASS=password
 HOST=192.168.99.100
 PORT=9201
 INDEX=apachelogs-*
-QUERY_CSV=input1K1h.csv
-SCROLL_CSV=inputScroll.csv
 DOCS_PER_BULK=500
 NB_FILES=40
