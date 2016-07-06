@@ -1,39 +1,34 @@
 {
   "size": 0,
   "query": {
-    "filtered": {
-      "query": {
-        "query_string": {
-          "analyze_wildcard": true,
-          "query": "*"
-        }
-      },
-      "filter": {
-        "bool": {
-          "must": [
-            {
-              "range": {
-                "@timestamp": {
-                  "gte": ${time1},
-                  "lte": ${time2},
-                  "format": "epoch_millis"
-                }
-              }
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "*",
+            "analyze_wildcard": true
+          }
+        },
+        {
+          "range": {
+            "@timestamp": {
+              "gte": ${time1},
+              "lte": ${time2},
+              "format": "epoch_millis"
             }
-          ],
-          "must_not": []
+          }
         }
-      }
+      ],
+      "must_not": []
     }
   },
   "aggs": {
     "2": {
-      "terms": {
-        "field": "geoip.country_name",
-        "size": 5,
-        "order": {
-          "_count": "desc"
-        }
+      "date_histogram": {
+        "field": "@timestamp",
+        "interval": "1d",
+        "time_zone": "Europe/Berlin",
+        "min_doc_count": 1
       }
     }
   }

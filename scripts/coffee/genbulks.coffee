@@ -54,12 +54,13 @@ rimraf outputFolder, (err) ->
 
           indexLine = "{ \"index\" : { \"_index\" : \"#{indexOutputName}\", \"_type\" : \"#{typeName}\" } }"
           
+          outputFileName = "file_#{bulkCount}"
           
           # switch to next file when reached bulksize
           if lineCount >= bulkSize
-                        
+            #fs.renameSync "#{outputFolder}/#{outputFileName}","#{outputFolder}/#{outputFileName}.txt"
             bulkCount++
-            if nbFiles>0 and bulkCount > nbFiles
+            if nbFiles>0 and bulkCount >= nbFiles
               console.log "#{bulkCount} reached ..  Stopping !"
               process.exit()
               

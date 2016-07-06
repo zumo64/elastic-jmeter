@@ -2,8 +2,8 @@
 JMETER_PATH=/Users/zumo/dev/java-tools/jmeter
 USER=es_admin
 PASS=password
-HOST=192.168.99.100
-PORT=9201
+HOST=localhost
+PORT=9200
 INDEX=apachelogs-*
-DOCS_PER_BULK=500
-NB_FILES=40
+DOCS_PER_BULK=1000
+NB_FILES=10

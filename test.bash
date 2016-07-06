@@ -15,14 +15,16 @@
 QUERY_THROUGHPUT=5.0
 SCROLL_THROUGHPUT=20.0
 # ingestion Througput in raw MB/s
-INGEST_THROUGHPUT=0.5
+INGEST_THROUGHPUT=0.25
 # Tag this test
 TEST_TAG=T0602
 
 # Enable/disable JMeter test group threads
 INGESTION_ENABLED=true
+# use -1 if loop files in ./input forever 
+INGEST_FILES_LOOPS=-1
 QUERY_ENABLED=true
-SCROSS_ENABLED=true
+SCROSS_ENABLED=false
 
 # Query and Scroll files in ./queries 
 QUERY_CSV=input1K1h.csv
@@ -64,6 +66,7 @@ curl -u "$USER:$PASS" -XPUT "http://$HOST:$PORT/_template/template1" -d @./templ
   -Juser="$USER" \
   -Jpass="$PASS" \
   -JinputFiles="$BULK_FILES" \
+  -JloopFiles="$INGEST_FILES_LOOPS" \
   -JindexName="$INDEX" \
   -JtypeName=logs \
   -JqueryThroughPut="$QUERY_THROUGHPUT" \

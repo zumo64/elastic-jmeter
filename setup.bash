@@ -23,7 +23,7 @@ echo "generating $NB_FILES bulk files.."
 # outputFolder : The path where the traget bulks are generated
 # indexName : the name of the index
 # typeName = the Type name
-# bulkSize = Number of dpcs on each bulk (example: 500)
+# bulkSize = Number of docs on each bulk (example: 500)
 # nbFiles = Number of chunks to generate (set to -1 for let it generate as many as needed)
 # indexType =  "daily" or "single" or "none" (default single) Use this option if you want to index to daily indices (ex daily logs) or one only index) When using daily , it will use the timestamp field in the source docs. "none" will skip the index line in the bulk (useful when not using the bulkAPI)
 coffee ./scripts/coffee/genbulks.coffee ./ingest ./input apachelogs logs $DOCS_PER_BULK $NB_FILES daily
