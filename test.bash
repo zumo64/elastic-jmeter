@@ -10,6 +10,15 @@
 # Load Global Vars
 . vars.bash
 
+# Enable/disable JMeter threads
+# Ingest files in ./input
+INGESTION_ENABLED=true
+# use -1 in order to loop files in ./input forever (default)
+INGEST_FILES_LOOPS=-1
+# send queries
+QUERY_ENABLED=true
+# send Scroll queries
+SCROSS_ENABLED=false
 
 # Througput in requests per minute
 QUERY_THROUGHPUT=5.0
@@ -19,12 +28,6 @@ INGEST_THROUGHPUT=0.25
 # Tag this test
 TEST_TAG=T0602
 
-# Enable/disable JMeter test group threads
-INGESTION_ENABLED=true
-# use -1 if loop files in ./input forever 
-INGEST_FILES_LOOPS=-1
-QUERY_ENABLED=true
-SCROSS_ENABLED=false
 
 # Query and Scroll files in ./queries 
 QUERY_CSV=input1K1h.csv
