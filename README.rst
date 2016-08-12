@@ -7,16 +7,16 @@ This repo comes with 2 sets  jmeter test plans and associated bash scripts   :
 
 Limitations
 --------------
-The logs replayer only works on linux based systems where bash avail
+The logs replayer only works on linux based systems
 Not tested/adapted for Windows 
 
 Pre-requisites
 -------------------
 
 Install Jmeter 3.0
-Have a ES running cluster accessible from JM
+Have a ES running cluster accessible from JM if using es_test.bash
 
-If planning to use the setup.bash script you need :
+If planning to use the es_test_setup.bash (generate sample bulk ingest scripts)  you need :
 1.  npm
 2.  coffeescript (see http://coffeescript.org/)
 
@@ -134,11 +134,9 @@ the latency in ms is the csv file
 
 
 
-
-
 setup_play_logs.bash
 ------------------------------
-This simply extracts the sample raw log for the ingest/gzip file to ./input 
+This simply extracts the sample raw log for the ingest/gzip file and puts it on the  ./input folder 
 
 
 play_logs.bash
