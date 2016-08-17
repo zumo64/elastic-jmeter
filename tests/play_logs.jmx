@@ -70,7 +70,7 @@ for (File file : files) {
             </elementProp>
             <stringProp name="SystemSampler.directory"></stringProp>
             <stringProp name="SystemSampler.stdin">${current_file}</stringProp>
-            <longProp name="SystemSampler.timeout">100</longProp>
+            <longProp name="SystemSampler.timeout">500</longProp>
           </SystemSampler>
           <hashTree>
             <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
@@ -99,6 +99,11 @@ log.info(&quot; maxline : &quot; + file +&quot; &quot;+  response );
                 <collectionProp name="Arguments.arguments">
                   <elementProp name="" elementType="Argument">
                     <stringProp name="Argument.name"></stringProp>
+                    <stringProp name="Argument.value">-e</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                  <elementProp name="" elementType="Argument">
+                    <stringProp name="Argument.name"></stringProp>
                     <stringProp name="Argument.value">${line}!d</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                   </elementProp>
@@ -113,6 +118,7 @@ log.info(&quot; maxline : &quot; + file +&quot; &quot;+  response );
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
               <stringProp name="SystemSampler.directory"></stringProp>
+              <longProp name="SystemSampler.timeout">500</longProp>
             </SystemSampler>
             <hashTree>
               <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="Redirect to logs" enabled="true">
@@ -121,10 +127,10 @@ log.info(&quot; maxline : &quot; + file +&quot; &quot;+  response );
                 <boolProp name="resetInterpreter">false</boolProp>
                 <stringProp name="script">response = prev.getResponseDataAsString();
 thread = ctx.getThreadNum();
-os = new FileOutputStream(&quot;./logs/output_&quot;+thread+&quot;.log&quot;,true);
-printStream = new PrintStream(os);
+osTream = new FileOutputStream(&quot;./logs/output_&quot;+thread+&quot;.log&quot;,true);
+printStream = new PrintStream(osTream);
 printStream.print(response);
-os.close();
+osTream.close();
 
 current_line=vars.get(&quot;line&quot;);
 current_line_i = Integer.parseInt(current_line);
