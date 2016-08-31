@@ -104,7 +104,7 @@ log.info(&quot; maxline : &quot; + file +&quot; &quot;+  response );
                   </elementProp>
                   <elementProp name="" elementType="Argument">
                     <stringProp name="Argument.name"></stringProp>
-                    <stringProp name="Argument.value">${line}!d</stringProp>
+                    <stringProp name="Argument.value">&apos;${line}!d&apos;</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                   </elementProp>
                   <elementProp name="" elementType="Argument">
