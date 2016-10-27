@@ -1,11 +1,12 @@
 #!/bin/bash
-JMETER_PATH=/usr/local/jmeter/apache-jmeter-3.0
+JMETER_PATH=/Users/zumo/dev/java-tools/jmeter
 USER=es_admin
 PASS=password
 HOST=localhost
+JM_REMOTES=10.0.0.215,10.0.0.216
 PORT=9200
 INDEX=apachelogs-*
-DOCS_PER_BULK=1000
+DOCS_PER_BULK=500
 # parameter below tells how many files we want to generate if using the genBulks tool 
 # set to -1 if unlimited
-NB_FILES=-1
+NB_FILES=10
