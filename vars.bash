@@ -1,9 +1,9 @@
 #!/bin/bash
 JMETER_PATH=/Users/zumo/dev/java-tools/jmeter
-USER=es_admin
-PASS=password
+USER=elastic
+PASS=changeme
 HOST=localhost
-JM_REMOTES=10.0.0.215,10.0.0.216
+#JM_REMOTES=10.0.0.215,10.0.0.216
 PORT=9200
 INDEX=apachelogs-*
 DOCS_PER_BULK=500

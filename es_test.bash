@@ -20,7 +20,7 @@
 
 # Enable/disable JMeter threads
 # Ingest files in ./input
-INGESTION_ENABLED=false
+INGESTION_ENABLED=true
 # use -1 in order to loop files in ./input forever (default)
 INGEST_FILES_LOOPS=-1
 # send queries
@@ -29,7 +29,7 @@ QUERY_ENABLED=true
 SCROLL_ENABLED=false
 
 # Througput in requests per minute
-QUERY_THROUGHPUT=5.0
+QUERY_THROUGHPUT=60.0
 SCROLL_THROUGHPUT=20.0
 # ingestion Througput in raw MB/s
 INGEST_THROUGHPUT=0.25
@@ -76,7 +76,6 @@ curl -u "$USER:$PASS" -XPUT "http://$HOST:$PORT/_template/template1" -d @./templ
 # launch test slave or master
 if [ "$1" == "single" ] || [ -z $1 ]
 then
-  echo "saloccqsddsqsdqsdqsdqsdqsdqsdqsdqsdcccpe"
   "$JMETER_PATH/bin/jmeter" -n -t ./tests/elk_stress.jmx \
     -JtestScroll="$SCROLL_ENABLED"  \
     -JtestIngest="$INGESTION_ENABLED"  \

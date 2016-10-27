@@ -157,3 +157,8 @@ play_logs.bash
 This will launch a test plan that reads from input/*.* raw log files and spits each line of log onto the ./logs folder. You can specify the number of threads (aka simulating the number of processes generating logs simultaneously) and the pace. 
 
 
+Useful scripts 
+###adds ,request1.json at the end of each line
+cat input1d10.csv | awk '{print $0 ",request1.json"}' > input1d5000R1.csv
+
+

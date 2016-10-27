@@ -7,24 +7,24 @@
 . vars.bash
 
 if [ -f ./ingest/logs_ingest.json ];
-then
+then 
   rm ./ingest/logs_ingest.json
 fi
 
-if [ -f ./input ];
+if [ -d ./input ];
 then
   rm ./input/*
 fi
 
-if [ -f ./results ];
+if [ -d ./results ];
 then
   rm ./results/*.csv
 fi
 
-if [ -f ./logs ];
+if [ -d ./logs ];
 then
   rm ./logs/*.log
 fi
 
 # delete all indices
-curl -u "$USER:$PASS" -XDELETE "http://$HOST:$PORT/$INDEX"
+#curl -u "$USER:$PASS" -XDELETE "http://$HOST:$PORT/$INDEX"
