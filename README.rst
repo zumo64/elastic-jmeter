@@ -19,7 +19,7 @@ Have a ES running cluster accessible from JM if using es_test.bash
 If planning to use the es_test_setup.bash (generate sample bulk ingest scripts)  you need :
 1.  npm
 2.  coffeescript (see http://coffeescript.org/)
-
+3.  run npm install from within the coffee folder
 
 If planning to perform scan and scroll queries from Jmeter :
 3. you need python 
