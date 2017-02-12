@@ -1,0 +1,142 @@
+{
+    "mappings": {
+        "logs": {
+            "properties": {
+                "@timestamp": {
+                    "format": "strict_date_optional_time||epoch_millis",
+                    "type": "date"
+                },
+                "@version": {
+                    "type": "keyword"
+                },
+                "agent": {
+                    "type": "keyword"
+                },
+                "auth": {
+                    "type": "keyword"
+                },
+                "bytes": {
+                    "type": "long"
+                },
+                "clientip": {
+                    "type": "keyword"
+                },
+                "geoip": {
+                    "properties": {
+                        "area_code": {
+                            "type": "long"
+                        },
+                        "city_name": {
+                          "type": "keyword"
+                        },
+                        "continent_code": {
+                          "type": "keyword"
+                        },
+                        "country_code2": {
+                          "type": "keyword"
+                        },
+                        "country_code3": {
+                          "type": "keyword"
+                        },
+                        "country_name": {
+                          "type": "keyword"
+                        },
+                        "dma_code": {
+                            "type": "long"
+                        },
+                        "ip": {
+                          "type": "keyword"
+                        },
+                        "latitude": {
+                            "type": "double"
+                        },
+                        "location": {
+                            "type": "double"
+                        },
+                        "longitude": {
+                            "type": "double"
+                        },
+                        "postal_code": {
+                          "type": "keyword"
+                        },
+                        "real_region_name": {
+                          "type": "keyword"
+                        },
+                        "region_name": {
+                          "type": "keyword"
+                        },
+                        "timezone": {
+                          "type": "string"
+                        }
+                    }
+                },
+                "host": {
+                  "type": "keyword"
+                },
+                "httpversion": {
+                  "type": "keyword"
+                },
+                "ident": {
+                  "type": "keyword"
+                },
+                "message": {
+                  "type": "keyword"
+                },
+                "referrer": {
+                  "type": "keyword"
+                },
+                "request": {
+                  "type": "keyword"
+                },
+                "response": {
+                  "type": "long"
+                },
+                "timestamp": {
+                    "type": "keyword"
+                },
+                "useragent": {
+                    "properties": {
+                        "build": {
+                          "type": "keyword"
+                        },
+                        "device": {
+                          "type": "keyword"
+                        },
+                        "major": {
+                          "type": "keyword"
+                        },
+                        "minor": {
+                          "type": "keyword"
+                        },
+                        "name": {
+                          "type": "keyword"
+                        },
+                        "os": {
+                          "type": "keyword"
+                        },
+                        "os_major": {
+                          "type": "keyword"
+                        },
+                        "os_minor": {
+                          "type": "keyword"
+                        },
+                        "os_name": {
+                          "type": "keyword"
+                        },
+                        "patch": {
+                          "type": "keyword"
+                        }
+                    }
+                },
+                "verb": {
+                    "type": "keyword"
+                }
+            }
+        }
+    },
+    "settings": {
+        "number_of_replicas": 0,
+        "number_of_shards": 1
+    },
+   "template": "apachelogs-*"
+}

@@ -7,22 +7,21 @@ This repo comes with 2 sets  jmeter test plans and associated bash scripts   :
 
 Limitations
 --------------
-The logs replayer only works on linux based systems
+The logs replayer only works on linux based systems (tested MacOS)
 Not tested/adapted for Windows 
 
 Pre-requisites
 -------------------
-
-Install Jmeter 3.0
+Install Jmeter 3.1
 Have a ES running cluster accessible from JM if using es_test.bash
 
-If planning to use the es_test_setup.bash (generate sample bulk ingest scripts)  you need :
+If planning to use the setup_es_test.bash (generate sample bulk ingest scripts)  you need :
 1.  npm
 2.  coffeescript (see http://coffeescript.org/)
 3.  run npm install from within the coffee folder
 
 If planning to perform scan and scroll queries from Jmeter :
-3. you need python 
+4. you need python 
 
 
 Setup data and queries 
@@ -116,6 +115,8 @@ You can refer to multiple queries in the CSV.. Make sure the CSV headers properl
 
 Each query will be sent iteratively by JMeter, and the global throughput will be  QUERY_THROUGHPUT
  
+
+
 * genDateIntervals.coffee can be used to generate random timestamp intervals.
 supported parameters: 
 
@@ -154,7 +155,7 @@ This simply extracts the sample raw log for the ingest/gzip file and puts it on 
 
 play_logs.bash
 --------------------
-This will launch a test plan that reads from input/*.* raw log files and spits each line of log onto the ./logs folder. You can specify the number of threads (aka simulating the number of processes generating logs simultaneously) and the pace. 
+This will launch a test plan that reads from input/*.* raw log files and spits each line of log onto the ./logs folder. You can specify the number of threads (aka simulating the number of processes generating logs simultaneously) and the pace.  You can then use Filebeat or Logstash to 
 
 
 Useful scripts 

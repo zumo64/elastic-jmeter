@@ -24,7 +24,7 @@ INGESTION_ENABLED=true
 # use -1 in order to loop files in ./input forever (default)
 INGEST_FILES_LOOPS=-1
 # send queries
-QUERY_ENABLED=true
+QUERY_ENABLED=false
 # send Scroll queries
 SCROLL_ENABLED=false
 
@@ -70,7 +70,7 @@ fi
 
 
 # Create apachelogs-* template
-curl -u "$USER:$PASS" -XPUT "http://$HOST:$PORT/_template/template1" -d @./templates/apache_logs.json
+curl -u "$USER:$PASS" -XPUT "http://$HOST:$PORT/_template/template1" -d "@./templates/$TEMPLATE.json"
 
 
 # launch test slave or master
